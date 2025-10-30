@@ -1,9 +1,28 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/values/themes.xml -->
+<resources>
+
+    <!-- 1. Базовая тема приложения (основная) -->
     <style name="Base.Theme.MerjuMaterjalid" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Основные цвета бренда для Material 3 -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+
+        <!-- Цвет фона приложения -->
+        <item name="android:colorBackground">@color/card_background</item>
+
+        <!-- Вы можете добавить другие кастомные атрибуты сюда -->
     </style>
 
+    <!-- Финальная тема приложения, наследуется от базовой -->
     <style name="Theme.MerjuMaterjalid" parent="Base.Theme.MerjuMaterjalid" />
+
+    <!-- 2. Тема для SplashActivity, которая убирает ActionBar (ИСПРАВЛЕНИЕ ОШИБКИ) -->
+    <style name="Theme.MerjuMaterjalid.NoActionBar" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Эта тема просто наследует стандартную тему без верхней панели. -->
+        <!-- Она нужна, чтобы исправить ошибку сборки, вызванную AndroidManifest.xml -->
+    </style>
+
 </resources>

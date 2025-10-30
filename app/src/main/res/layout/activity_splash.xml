@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ECE8C5"
+    tools:ignore="ExtraText">  <!-- Комментарий теперь здесь, вне тега, и это безопасно -->
+
+    <!-- Логотип (можно заменить своим в drawable или mipmap) -->
+    <ImageView
+        android:id="@+id/splashLogo"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:src="@mipmap/ic_launcher"
+        android:contentDescription="@string/app_name" /> <!-- Тег ImageView теперь корректно закрыт -->
+
+    <TextView
+        android:id="@+id/splashTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Merju Materjalid"
+        android:textColor="#000000" /> <!-- РЕКОМЕНДАЦИЯ: Используйте это для поддержки тем -->
+    android:textSize="22sp"
+    android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/splashSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="Õpi eesti keelt rõõmuga!"
+        android:textColor="#000000" /> <!-- РЕКОМЕНДАЦИЯ: Используйте это для поддержки тем -->
+    android:textSize="14sp" />
+
+</LinearLayout>

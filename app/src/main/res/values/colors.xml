@@ -1,5 +1,19 @@
-<?xml version="1.0" encoding="utf-8"?>
+<!-- res/values/colors.xml -->
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="colorPrimary">#BB86FC</color>
+    <color name="colorPrimaryVariant">#3700B3</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorSecondary">#03DAC6</color>
+    <color name="colorSecondaryVariant">#018786</color>
+    <color name="colorOnSecondary">#000000</color>
+
+    <color name="favorite_button_background">#FFFFFF</color>
+    <color name="main_text_color_eesti">#000000</color>
+
+    <!-- Ваши кастомные цвета для UI -->
+    <color name="card_background">#FFFFFF</color>
+    <color name="text_color_primary">#000000</color>
+    <color name="text_color_secondary">#4D4D4D</color>
+    <color name="button_favorite_tint">#FFFFFF</color>
 </resources>
+    

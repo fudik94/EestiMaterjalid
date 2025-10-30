@@ -1,7 +1,12 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.MerjuMaterjalid" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
-    </style>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/values-night/themes.xml -->
+<resources>
+
+    <!--
+    Эта тема автоматически наследует 'Base.Theme.MerjuMaterjalid' из 'values/themes.xml',
+    но применяет к ней цвета из 'values-night/colors.xml', потому что родительская
+    тема 'Theme.Material3.DayNight.NoActionBar' умеет это делать.
+    -->
+    <style name="Theme.MerjuMaterjalid" parent="Base.Theme.MerjuMaterjalid" />
+
 </resources>

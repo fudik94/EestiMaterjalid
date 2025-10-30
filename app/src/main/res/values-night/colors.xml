@@ -1,0 +1,20 @@
+<!-- res/values-night/colors.xml -->
+<resources>
+    <color name="colorPrimary">#BB86FC</color>
+    <color name="colorPrimaryVariant">#3700B3</color>
+    <color name="colorOnPrimary">#000000</color>
+    <color name="colorSecondary">#03DAC6</color>
+    <color name="colorSecondaryVariant">#03DAC6</color>
+    <color name="colorOnSecondary">#000000</color>
+
+    <color name="favorite_button_background">#414141</color>
+    <color name="main_text_color_eesti">#FFFFFF</color>
+
+    <!-- Ваши кастомные цвета для UI (те же имена, другие значения) -->
+    <color name="card_background">#1E1E1E</color>
+    <color name="text_color_primary">#FFFFFF</color>
+    <color name="text_color_secondary">#B3B3B3</color>
+    <color name="button_favorite_tint">#1E1E1E</color>
+
+</resources>
+    
