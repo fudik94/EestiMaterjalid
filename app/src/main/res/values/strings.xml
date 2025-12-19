@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MerjuMaterjalid</string>
+    <string name="app_name">EestiMaterjalid</string>
     <string name="shuffle_button">🔀 Mix</string>
     <string name="favorites_button">⭐ Favorites</string>
     <string name="show_all_button">📋 Show All</string>
