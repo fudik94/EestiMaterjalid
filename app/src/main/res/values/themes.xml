@@ -11,7 +11,7 @@
         <item name="colorOnSecondary">@color/colorOnSecondary</item>
 
         <!-- Цвет фона приложения -->
-        <item name="android:colorBackground">@color/card_background</item>
+        <item name="android:colorBackground">#ECE8C5</item>
 
         <!-- Вы можете добавить другие кастомные атрибуты сюда -->
     </style>

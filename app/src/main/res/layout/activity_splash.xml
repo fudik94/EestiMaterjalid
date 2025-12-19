@@ -9,19 +9,21 @@
     tools:ignore="ExtraText">  <!-- Комментарий теперь здесь, вне тега, и это безопасно -->
 
     <!-- Логотип (можно заменить своим в drawable или mipmap) -->
+    <!-- Тег ImageView теперь корректно закрыт -->
+
     <ImageView
         android:id="@+id/splashLogo"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:src="@mipmap/ic_launcher"
-        android:contentDescription="@string/app_name" /> <!-- Тег ImageView теперь корректно закрыт -->
+        android:contentDescription="@string/app_name"
+        android:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/splashTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Merju Materjalid"
+        android:text="Eesti Materjalid"
         android:textColor="#000000"
         android:textSize="22sp"
         android:textStyle="bold" />
