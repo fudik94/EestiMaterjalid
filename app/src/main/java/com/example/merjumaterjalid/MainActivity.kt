@@ -1,6 +1,7 @@
 package com.example.merjumaterjalid
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         val shuffleButton: Button = findViewById(R.id.shuffleButton)
         val favoritesButton: Button = findViewById(R.id.favoritesButton)
         val showAllButton: Button = findViewById(R.id.showAllButton)
+        val statisticsButton: Button = findViewById(R.id.statisticsButton)
         val limitSpinner: Spinner = findViewById(R.id.limitSpinner)
         val searchEditText: EditText = findViewById(R.id.searchEditText)
 
@@ -53,6 +55,9 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
+
+        // Отслеживаем просмотренные слова
+        incrementWordsViewed()
 
         // Настройка спиннера (10 / 20 / 30 / все)
         val limits = listOf("All", "10", "20", "30", "50")
@@ -100,6 +105,17 @@ class MainActivity : AppCompatActivity() {
             searchEditText.text.clear()
             updateDisplayedWords()
         }
+
+        // Кнопка Статистика
+        statisticsButton.setOnClickListener {
+            startActivity(Intent(this, StatisticsActivity::class.java))
+        }
+    }
+
+    // Увеличиваем счетчик просмотренных слов
+    private fun incrementWordsViewed() {
+        val currentCount = prefs.getInt("words_viewed", 0)
+        prefs.edit().putInt("words_viewed", currentCount + displayedWords.size).apply()
     }
 
     // Фильтрация слов по поисковому запросу

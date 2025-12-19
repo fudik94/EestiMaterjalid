@@ -29,6 +29,12 @@
             android:name=".MainActivity"
             android:exported="true" />
 
+        <!-- 🔹 Экран статистики -->
+        <activity
+            android:name=".StatisticsActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
     </application>
 
 </manifest>
