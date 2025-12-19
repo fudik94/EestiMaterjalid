@@ -7,15 +7,37 @@
     android:padding="24dp"
     tools:context=".QuizActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <!-- Пустое место под фронтальную камеру -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="24dp" />
+
+    <!-- Header with title and exit button -->
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="🎯 Estonian Quiz"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        android:layout_marginBottom="16dp"
-        android:textColor="@color/colorPrimary" />
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🎯 Estonian Quiz"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:textColor="@color/colorPrimary" />
+
+        <Button
+            android:id="@+id/exitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="❌"
+            android:textSize="20sp"
+            android:minWidth="48dp"
+            android:minHeight="48dp" />
+
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/scoreText"
@@ -24,8 +46,31 @@
         android:text="Score: 0 / 0"
         android:textSize="18sp"
         android:layout_gravity="center"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="8dp"
         android:textStyle="bold" />
+
+    <!-- Language selection -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Answer language: "
+            android:textSize="14sp"
+            android:layout_marginEnd="8dp" />
+
+        <Spinner
+            android:id="@+id/languageSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp" />
+
+    </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"

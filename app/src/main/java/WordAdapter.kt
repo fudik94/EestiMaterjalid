@@ -44,12 +44,12 @@ class WordAdapter(
         holder.example.visibility = View.GONE
 
         val isFavorite = favorites.contains(word.name)
-        holder.favoriteButton.text = if (isFavorite) "✅" else "⭐"
+        holder.favoriteButton.text = if (isFavorite) "⭐" else "☆"
 
         holder.favoriteButton.setOnClickListener {
             val nowFav = !favorites.contains(word.name)
             onFavoriteChanged(word.name, nowFav)
-            holder.favoriteButton.text = if (nowFav) "✅" else "⭐"
+            holder.favoriteButton.text = if (nowFav) "⭐" else "☆"
         }
 
         holder.toggleTranslation.setOnClickListener {

@@ -41,6 +41,12 @@
             android:exported="false"
             android:parentActivityName=".MainActivity" />
 
+        <!-- 🔹 Экран добавления слов -->
+        <activity
+            android:name=".AddWordActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@
     <string name="show_all_button">📋 Show All</string>
     <string name="statistics_button">📊 Statistics</string>
     <string name="quiz_button">🎯 Quiz Mode</string>
+    <string name="add_word_button">➕ Add Word</string>
     <string name="search_hint">🔍 Search words...</string>
     <string name="toggle_translation">Translation</string>
     <string name="toggle_question">Question</string>
