@@ -1,15 +1,17 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    android:elevation="6dp"
-    android:padding="12dp"
-    android:radius="12dp">
+    app:cardElevation="4dp"
+    app:cardCornerRadius="12dp"
+    android:padding="12dp">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="12dp">
 
         <!-- Название + звездочка -->
         <RelativeLayout
@@ -22,6 +24,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
+                android:layout_toStartOf="@id/favoriteButton"
+                android:layout_marginEnd="8dp"
                 android:textStyle="bold"
                 android:textSize="20sp"
                 android:textColor="@color/main_text_color_eesti" />
@@ -29,11 +33,11 @@
             <Button
                 android:id="@+id/favoriteButton"
                 android:layout_alignParentEnd="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:backgroundTint="@color/favorite_button_background"
-
-                android:text="⭐" />
+                android:text="⭐"
+                android:textSize="18sp" />
         </RelativeLayout>
 
         <!-- Переводы -->
@@ -41,27 +45,30 @@
             android:id="@+id/wordTranslation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="8dp"
             android:textSize="16sp"
             android:visibility="gone"
+            android:lineSpacingExtra="4dp"
             android:textColor="@android:color/holo_blue_dark" />
 
         <TextView
             android:id="@+id/wordQuest"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="8dp"
             android:textSize="16sp"
             android:visibility="gone"
+            android:lineSpacingExtra="4dp"
             android:textColor="@android:color/holo_green_dark" />
 
         <TextView
             android:id="@+id/wordExample"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="8dp"
             android:textSize="16sp"
             android:visibility="gone"
+            android:lineSpacingExtra="4dp"
             android:textColor="@android:color/darker_gray" />
 
         <!-- Кнопки в одну линию -->
@@ -70,31 +77,36 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginTop="10dp">
+            android:layout_marginTop="12dp">
 
             <Button
                 android:id="@+id/toggleTranslation"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-
-                android:text="translate" />
+                android:text="@string/toggle_translation"
+                android:textSize="11sp"
+                android:padding="8dp" />
 
             <Button
                 android:id="@+id/toggleQuest"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
+                android:layout_marginStart="4dp"
                 android:layout_weight="1"
-                android:text="question" />
+                android:text="@string/toggle_question"
+                android:textSize="11sp"
+                android:padding="8dp" />
 
             <Button
                 android:id="@+id/toggleExample"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="example"
-                android:layout_marginStart="6dp" />
+                android:text="@string/toggle_example"
+                android:layout_marginStart="4dp"
+                android:textSize="11sp"
+                android:padding="8dp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

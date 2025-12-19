@@ -1,9 +1,13 @@
 package com.example.merjumaterjalid
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Button
+import android.widget.EditText
 import android.widget.Spinner
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
@@ -14,8 +18,11 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var adapter: WordAdapter
     private lateinit var allWords: MutableList<Word>
+    private lateinit var displayedWords: MutableList<Word>
     private lateinit var favorites: MutableSet<String>
     private lateinit var prefs: SharedPreferences
+    private var currentLimit: Int = Int.MAX_VALUE
+    private var isShowingFavorites: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +31,10 @@ class MainActivity : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
         val shuffleButton: Button = findViewById(R.id.shuffleButton)
         val favoritesButton: Button = findViewById(R.id.favoritesButton)
+        val showAllButton: Button = findViewById(R.id.showAllButton)
+        val statisticsButton: Button = findViewById(R.id.statisticsButton)
         val limitSpinner: Spinner = findViewById(R.id.limitSpinner)
+        val searchEditText: EditText = findViewById(R.id.searchEditText)
 
         // Настраиваем SharedPreferences
         prefs = getSharedPreferences("MerjuPrefs", Context.MODE_PRIVATE)
@@ -32,10 +42,11 @@ class MainActivity : AppCompatActivity() {
 
         // Загружаем данные
         allWords = readCsv(this)
+        displayedWords = allWords.toMutableList()
 
         // Создаём адаптер
         adapter = WordAdapter(
-            allWords.toMutableList(),
+            displayedWords,
             favorites
         ) { wordName, isFav ->
             if (isFav) favorites.add(wordName) else favorites.remove(wordName)
@@ -46,54 +57,122 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
 
         // Настройка спиннера (10 / 20 / 30 / все)
-        val limits = listOf("all", "10", "20", "30")
+        val limits = listOf("All", "10", "20", "30", "50")
         val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, limits)
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         limitSpinner.adapter = spinnerAdapter
 
         limitSpinner.setSelection(0) // по умолчанию "Все"
         limitSpinner.setOnItemSelectedListener(SimpleItemSelectedListener { value ->
-            val limit = when (value) {
+            currentLimit = when (value) {
                 "10" -> 10
                 "20" -> 20
                 "30" -> 30
-                else -> allWords.size
+                "50" -> 50
+                else -> Int.MAX_VALUE
             }
-            adapter.updateList(allWords.take(limit))
+            updateDisplayedWords()
+        })
+
+        // Поиск слов
+        searchEditText.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                val query = s.toString().trim().lowercase()
+                filterWords(query)
+            }
         })
 
         // Кнопка перемешать
         shuffleButton.setOnClickListener {
-            allWords.shuffle()
-            adapter.updateList(allWords)
+            displayedWords.shuffle()
+            adapter.updateList(displayedWords)
         }
 
         // Кнопка Избранное
         favoritesButton.setOnClickListener {
-            val favWords = allWords.filter { favorites.contains(it.name) }
-            adapter.updateList(favWords)
+            isShowingFavorites = true
+            updateDisplayedWords()
         }
+
+        // Кнопка Показать все
+        showAllButton.setOnClickListener {
+            isShowingFavorites = false
+            searchEditText.text.clear()
+            updateDisplayedWords()
+        }
+
+        // Кнопка Статистика
+        statisticsButton.setOnClickListener {
+            startActivity(Intent(this, StatisticsActivity::class.java))
+        }
+
+        // Кнопка Квиз
+        val quizButton: Button = findViewById(R.id.quizButton)
+        quizButton.setOnClickListener {
+            startActivity(Intent(this, QuizActivity::class.java))
+        }
+    }
+
+    // Фильтрация слов по поисковому запросу
+    private fun filterWords(query: String) {
+        if (query.isEmpty()) {
+            updateDisplayedWords()
+            return
+        }
+
+        val filtered = if (isShowingFavorites) {
+            allWords.filter { favorites.contains(it.name) && it.name.lowercase().contains(query) }
+        } else {
+            allWords.filter { it.name.lowercase().contains(query) ||
+                    it.rus.lowercase().contains(query) ||
+                    it.eng.lowercase().contains(query) ||
+                    it.aze.lowercase().contains(query) }
+        }
+        
+        displayedWords = filtered.take(currentLimit).toMutableList()
+        adapter.updateList(displayedWords)
+    }
+
+    // Обновление отображаемых слов
+    private fun updateDisplayedWords() {
+        displayedWords = if (isShowingFavorites) {
+            val favWords = allWords.filter { favorites.contains(it.name) }
+            if (currentLimit == Int.MAX_VALUE) {
+                favWords.toMutableList()
+            } else {
+                favWords.take(currentLimit).toMutableList()
+            }
+        } else {
+            if (currentLimit == Int.MAX_VALUE) {
+                allWords.toMutableList()
+            } else {
+                allWords.take(currentLimit).toMutableList()
+            }
+        }
+        adapter.updateList(displayedWords)
     }
 
     // Чтение CSV
     private fun readCsv(context: Context): MutableList<Word> {
         val list = mutableListOf<Word>()
         try {
-            val inputStream = context.assets.open("words.csv")
-            val reader = inputStream.bufferedReader()
-            reader.forEachLine { line ->
-                val tokens = line.split(";")
-                if (tokens.size >= 6) {
-                    list.add(
-                        Word(
-                            name = tokens[0],
-                            quest = tokens[1],
-                            example = tokens[2],
-                            rus = tokens[3],
-                            eng = tokens[4],
-                            aze = tokens[5]
+            context.assets.open("words.csv").bufferedReader().use { reader ->
+                reader.forEachLine { line ->
+                    val tokens = line.split(";")
+                    if (tokens.size >= 6) {
+                        list.add(
+                            Word(
+                                name = tokens[0].trim(),
+                                quest = tokens[1].trim(),
+                                example = tokens[2].trim(),
+                                rus = tokens[3].trim(),
+                                eng = tokens[4].trim(),
+                                aze = tokens[5].trim()
+                            )
                         )
-                    )
+                    }
                 }
             }
         } catch (e: Exception) {

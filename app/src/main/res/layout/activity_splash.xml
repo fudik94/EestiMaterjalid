@@ -22,9 +22,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Merju Materjalid"
-        android:textColor="#000000" /> <!-- РЕКОМЕНДАЦИЯ: Используйте это для поддержки тем -->
-    android:textSize="22sp"
-    android:textStyle="bold" />
+        android:textColor="#000000"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/splashSubtitle"
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:text="Õpi eesti keelt rõõmuga!"
-        android:textColor="#000000" /> <!-- РЕКОМЕНДАЦИЯ: Используйте это для поддержки тем -->
-    android:textSize="14sp" />
+        android:textColor="#000000"
+        android:textSize="14sp" />
 
 </LinearLayout>

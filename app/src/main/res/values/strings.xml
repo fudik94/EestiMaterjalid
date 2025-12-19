@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">MerjuMaterjalid</string>
+    <string name="shuffle_button">🔀 Mix</string>
+    <string name="favorites_button">⭐ Favorites</string>
+    <string name="show_all_button">📋 Show All</string>
+    <string name="statistics_button">📊 Statistics</string>
+    <string name="quiz_button">🎯 Quiz Mode</string>
+    <string name="search_hint">🔍 Search words...</string>
+    <string name="toggle_translation">Translation</string>
+    <string name="toggle_question">Question</string>
+    <string name="toggle_example">Example</string>
+    <string name="splash_subtitle">Õpi eesti keelt rõõmuga!</string>
+    <string name="limit_label">Show:</string>
 </resources>
