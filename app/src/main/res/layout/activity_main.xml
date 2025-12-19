@@ -78,12 +78,30 @@
     </LinearLayout>
 
     <!-- Вторая строка кнопок -->
-    <Button
-        android:id="@+id/statisticsButton"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/statistics_button"
-        android:textSize="14sp"
-        android:layout_marginBottom="8dp" />
+        android:gravity="center"
+        android:layout_marginBottom="8dp">
+
+        <Button
+            android:id="@+id/statisticsButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/statistics_button"
+            android:textSize="14sp" />
+
+        <Button
+            android:id="@+id/quizButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/quiz_button"
+            android:textSize="14sp"
+            android:layout_marginStart="4dp" />
+
+    </LinearLayout>
 
 </LinearLayout>

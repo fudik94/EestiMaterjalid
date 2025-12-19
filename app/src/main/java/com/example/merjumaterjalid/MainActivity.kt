@@ -110,6 +110,12 @@ class MainActivity : AppCompatActivity() {
         statisticsButton.setOnClickListener {
             startActivity(Intent(this, StatisticsActivity::class.java))
         }
+
+        // Кнопка Квиз
+        val quizButton: Button = findViewById(R.id.quizButton)
+        quizButton.setOnClickListener {
+            startActivity(Intent(this, QuizActivity::class.java))
+        }
     }
 
     // Увеличиваем счетчик просмотренных слов

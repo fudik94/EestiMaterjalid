@@ -35,6 +35,12 @@
             android:exported="false"
             android:parentActivityName=".MainActivity" />
 
+        <!-- 🔹 Экран квиза -->
+        <activity
+            android:name=".QuizActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
     </application>
 
 </manifest>
