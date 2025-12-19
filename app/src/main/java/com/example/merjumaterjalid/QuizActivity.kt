@@ -73,9 +73,21 @@ class QuizActivity : AppCompatActivity() {
         
         // Добавляем случайные неправильные ответы
         val otherWords = allWords.filter { it.name != currentWord.name }.shuffled()
-        for (i in 0 until 3.coerceAtMost(otherWords.size)) {
+        val numOptions = minOf(3, otherWords.size)
+        for (i in 0 until numOptions) {
             options.add(otherWords[i].rus)
         }
+        
+        // Если недостаточно уникальных вариантов, дублируем с другими переводами
+        if (options.size < 4 && otherWords.isNotEmpty()) {
+            for (word in otherWords) {
+                if (options.size >= 4) break
+                if (!options.contains(word.eng) && word.eng.isNotEmpty()) {
+                    options.add(word.eng)
+                }
+            }
+        }
+        
         options.shuffle()
 
         // Создаем кнопки для вариантов
@@ -125,19 +137,28 @@ class QuizActivity : AppCompatActivity() {
 
     private fun showResults() {
         questionText.text = "Quiz Complete! 🎉"
-        scoreText.text = "Final Score: $correctAnswers / $totalQuestions"
+        
+        // Guard against division by zero
+        if (totalQuestions == 0) {
+            scoreText.text = "No questions answered"
+            resultText.text = "Please try again"
+            resultText.setTextColor(getColor(android.R.color.holo_orange_dark))
+        } else {
+            scoreText.text = "Final Score: $correctAnswers / $totalQuestions"
+            
+            val percentage = (correctAnswers.toFloat() / totalQuestions * 100).toInt()
+            resultText.text = when {
+                percentage >= 90 -> "🌟 Excellent! $percentage%"
+                percentage >= 70 -> "👍 Good job! $percentage%"
+                percentage >= 50 -> "👌 Not bad! $percentage%"
+                else -> "💪 Keep practicing! $percentage%"
+            }
+            resultText.setTextColor(getColor(android.R.color.holo_blue_dark))
+        }
+        
         optionsContainer.removeAllViews()
         nextButton.visibility = View.GONE
         finishButton.visibility = View.VISIBLE
-        
-        val percentage = (correctAnswers.toFloat() / totalQuestions * 100).toInt()
-        resultText.text = when {
-            percentage >= 90 -> "🌟 Excellent! $percentage%"
-            percentage >= 70 -> "👍 Good job! $percentage%"
-            percentage >= 50 -> "👌 Not bad! $percentage%"
-            else -> "💪 Keep practicing! $percentage%"
-        }
-        resultText.setTextColor(getColor(android.R.color.holo_blue_dark))
         resultText.visibility = View.VISIBLE
     }
 

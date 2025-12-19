@@ -17,14 +17,12 @@ class StatisticsActivity : AppCompatActivity() {
 
         val totalWordsText: TextView = findViewById(R.id.totalWordsText)
         val favoritesCountText: TextView = findViewById(R.id.favoritesCountText)
-        val wordsViewedText: TextView = findViewById(R.id.wordsViewedText)
         val backButton: Button = findViewById(R.id.backButton)
 
         prefs = getSharedPreferences("MerjuPrefs", Context.MODE_PRIVATE)
 
         // Загружаем статистику
         val favorites = prefs.getStringSet("favorites", mutableSetOf()) ?: mutableSetOf()
-        val wordsViewed = prefs.getInt("words_viewed", 0)
         
         // Считаем общее количество слов
         val totalWords = countWordsInCsv()
@@ -32,7 +30,6 @@ class StatisticsActivity : AppCompatActivity() {
         // Отображаем статистику
         totalWordsText.text = "Total Words: $totalWords"
         favoritesCountText.text = "Favorites: ${favorites.size}"
-        wordsViewedText.text = "Words Viewed: $wordsViewed"
 
         backButton.setOnClickListener {
             finish()

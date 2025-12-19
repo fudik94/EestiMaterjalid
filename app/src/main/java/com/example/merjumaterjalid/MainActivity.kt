@@ -56,9 +56,6 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
-        // Отслеживаем просмотренные слова
-        incrementWordsViewed()
-
         // Настройка спиннера (10 / 20 / 30 / все)
         val limits = listOf("All", "10", "20", "30", "50")
         val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, limits)
@@ -116,12 +113,6 @@ class MainActivity : AppCompatActivity() {
         quizButton.setOnClickListener {
             startActivity(Intent(this, QuizActivity::class.java))
         }
-    }
-
-    // Увеличиваем счетчик просмотренных слов
-    private fun incrementWordsViewed() {
-        val currentCount = prefs.getInt("words_viewed", 0)
-        prefs.edit().putInt("words_viewed", currentCount + displayedWords.size).apply()
     }
 
     // Фильтрация слов по поисковому запросу
