@@ -6,10 +6,13 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.ArrayAdapter
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,7 +26,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var prefs: SharedPreferences
     private var currentLimit: Int = Int.MAX_VALUE
     private var isShowingFavorites: Boolean = false
-    private val ADD_WORD_REQUEST_CODE = 1
+    private val WORD_LIBRARY_REQUEST_CODE = 1
+    private var isMenuExpanded: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +40,8 @@ class MainActivity : AppCompatActivity() {
         val statisticsButton: Button = findViewById(R.id.statisticsButton)
         val limitSpinner: Spinner = findViewById(R.id.limitSpinner)
         val searchEditText: EditText = findViewById(R.id.searchEditText)
+        val menuToggleButton: Button = findViewById(R.id.menuToggleButton)
+        val collapsibleMenuContainer: LinearLayout = findViewById(R.id.collapsibleMenuContainer)
 
         // Настраиваем SharedPreferences
         prefs = getSharedPreferences("MerjuPrefs", Context.MODE_PRIVATE)
@@ -56,6 +62,11 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
+
+        // Menu Toggle Button
+        menuToggleButton.setOnClickListener {
+            toggleMenu(collapsibleMenuContainer, menuToggleButton)
+        }
 
         // Настройка спиннера (10 / 20 / 30 / все)
         val limits = listOf("All", "10", "20", "30", "50")
@@ -115,17 +126,31 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, QuizActivity::class.java))
         }
 
-        // Кнопка Add Word
-        val addWordButton: Button = findViewById(R.id.addWordButton)
-        addWordButton.setOnClickListener {
-            startActivityForResult(Intent(this, AddWordActivity::class.java), ADD_WORD_REQUEST_CODE)
+        // Кнопка Word Library
+        val wordLibraryButton: Button = findViewById(R.id.wordLibraryButton)
+        wordLibraryButton.setOnClickListener {
+            startActivityForResult(Intent(this, WordLibraryActivity::class.java), WORD_LIBRARY_REQUEST_CODE)
+        }
+    }
+
+    private fun toggleMenu(menuContainer: LinearLayout, toggleButton: Button) {
+        if (isMenuExpanded) {
+            // Collapse menu
+            menuContainer.visibility = View.GONE
+            toggleButton.text = getString(R.string.menu_toggle_button)
+            isMenuExpanded = false
+        } else {
+            // Expand menu
+            menuContainer.visibility = View.VISIBLE
+            toggleButton.text = "▼ Close Menu"
+            isMenuExpanded = true
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == ADD_WORD_REQUEST_CODE && resultCode == RESULT_OK) {
-            // Reload words when a new word is added
+        if (requestCode == WORD_LIBRARY_REQUEST_CODE && resultCode == RESULT_OK) {
+            // Reload words when a word is added/edited/deleted
             allWords = readCsv(this)
             updateDisplayedWords()
         }

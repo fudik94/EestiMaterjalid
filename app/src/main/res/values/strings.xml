@@ -12,4 +12,20 @@
     <string name="toggle_example">Example</string>
     <string name="splash_subtitle">Õpi eesti keelt rõõmuga!</string>
     <string name="limit_label">Show:</string>
+    
+    <!-- Word Library -->
+    <string name="word_library_button">📚 Word Library</string>
+    <string name="word_library_title">📚 Word Library</string>
+    <string name="create_word_button">➕ Create New Word</string>
+    <string name="edit_word_button">✏️ Edit Word</string>
+    <string name="delete_word_button">🗑️ Delete Word</string>
+    <string name="edit_word_title">✏️ Edit Word</string>
+    <string name="delete_word_title">🗑️ Delete Word</string>
+    <string name="update_word_button">💾 Update Word</string>
+    <string name="select_word_label">Select word to edit:</string>
+    <string name="select_word_to_delete">Select word to delete:</string>
+    <string name="delete_word_confirm_button">🗑️ Delete This Word</string>
+    
+    <!-- Menu Toggle -->
+    <string name="menu_toggle_button">☰ Menu</string>
 </resources>

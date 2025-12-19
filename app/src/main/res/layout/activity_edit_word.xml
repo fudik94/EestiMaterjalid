@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".EditWordActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Пустое место под фронтальную камеру -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="24dp" />
+
+        <!-- Header with title and exit button -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_word_title"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"
+                android:textColor="@color/colorPrimary" />
+
+            <Button
+                android:id="@+id/editCloseButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="❌"
+                android:textSize="20sp"
+                android:minWidth="48dp"
+                android:minHeight="48dp" />
+
+        </RelativeLayout>
+
+        <!-- Select Word Spinner -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/select_word_label"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <Spinner
+            android:id="@+id/wordSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:minHeight="48dp"
+            android:padding="12dp" />
+
+        <!-- Estonian Word -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estonian word:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/editEstonianWordInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Estonian word"
+            android:inputType="text"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Question -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Question/Description:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/editQuestionInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter question or description"
+            android:inputType="textMultiLine"
+            android:minLines="2"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Example -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Example:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/editExampleInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter example sentence"
+            android:inputType="textMultiLine"
+            android:minLines="2"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Russian Translation -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🇷🇺 Russian translation:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/editRussianInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Russian translation"
+            android:inputType="text"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- English Translation -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🇬🇧 English translation:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/editEnglishInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter English translation"
+            android:inputType="text"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Azerbaijani Translation -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🇦🇿 Azerbaijani translation:"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <EditText
+            android:id="@+id/editAzerbaijaniInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Azerbaijani translation"
+            android:inputType="text"
+            android:padding="12dp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/editSaveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/update_word_button"
+            android:textSize="18sp"
+            android:padding="16dp" />
+
+    </LinearLayout>
+
+</ScrollView>

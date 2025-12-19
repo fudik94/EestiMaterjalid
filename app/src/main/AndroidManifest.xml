@@ -47,6 +47,24 @@
             android:exported="false"
             android:parentActivityName=".MainActivity" />
 
+        <!-- 🔹 Экран библиотеки слов -->
+        <activity
+            android:name=".WordLibraryActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+        <!-- 🔹 Экран редактирования слов -->
+        <activity
+            android:name=".EditWordActivity"
+            android:exported="false"
+            android:parentActivityName=".WordLibraryActivity" />
+
+        <!-- 🔹 Экран удаления слов -->
+        <activity
+            android:name=".DeleteWordActivity"
+            android:exported="false"
+            android:parentActivityName=".WordLibraryActivity" />
+
     </application>
 
 </manifest>

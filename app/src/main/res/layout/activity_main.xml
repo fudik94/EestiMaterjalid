@@ -33,84 +33,103 @@
         android:layout_weight="1"
         android:paddingBottom="8dp" />
 
-    <!-- Нижняя панель с кнопками (первая строка) -->
+    <!-- Collapsible Menu Container -->
     <LinearLayout
-        android:orientation="horizontal"
+        android:id="@+id/collapsibleMenuContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp">
+        android:orientation="vertical"
+        android:visibility="gone">
 
-        <Button
-            android:id="@+id/shuffleButton"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+        <!-- Нижняя панель с кнопками (первая строка) -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/shuffle_button"
-            android:textSize="12sp" />
+            android:gravity="center"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp">
 
-        <Spinner
-            android:id="@+id/limitSpinner"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:minHeight="48dp" />
+            <Button
+                android:id="@+id/shuffleButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/shuffle_button"
+                android:textSize="12sp" />
 
-        <Button
-            android:id="@+id/favoritesButton"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="@string/favorites_button"
-            android:layout_marginStart="4dp"
-            android:textSize="12sp" />
+            <Spinner
+                android:id="@+id/limitSpinner"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:minHeight="48dp" />
 
-        <Button
-            android:id="@+id/showAllButton"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            <Button
+                android:id="@+id/favoritesButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/favorites_button"
+                android:layout_marginStart="4dp"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/showAllButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/show_all_button"
+                android:layout_marginStart="4dp"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Вторая строка кнопок -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/show_all_button"
-            android:layout_marginStart="4dp"
-            android:textSize="12sp" />
+            android:gravity="center"
+            android:layout_marginBottom="4dp">
+
+            <Button
+                android:id="@+id/statisticsButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/statistics_button"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/quizButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/quiz_button"
+                android:textSize="12sp"
+                android:layout_marginStart="4dp" />
+
+            <Button
+                android:id="@+id/wordLibraryButton"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/word_library_button"
+                android:textSize="12sp"
+                android:layout_marginStart="4dp" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
-    <!-- Вторая строка кнопок -->
-    <LinearLayout
-        android:orientation="horizontal"
+    <!-- Menu Toggle Button -->
+    <Button
+        android:id="@+id/menuToggleButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginBottom="8dp">
-
-        <Button
-            android:id="@+id/statisticsButton"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="@string/statistics_button"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/quizButton"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="@string/quiz_button"
-            android:textSize="12sp"
-            android:layout_marginStart="4dp" />
-
-        <Button
-            android:id="@+id/addWordButton"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="@string/add_word_button"
-            android:textSize="12sp"
-            android:layout_marginStart="4dp" />
-
-    </LinearLayout>
+        android:text="@string/menu_toggle_button"
+        android:textSize="14sp"
+        android:padding="12dp" />
 
 </LinearLayout>
