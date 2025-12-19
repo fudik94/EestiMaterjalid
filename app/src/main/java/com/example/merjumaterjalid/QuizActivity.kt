@@ -37,6 +37,17 @@ class QuizActivity : AppCompatActivity() {
 
         // Загружаем слова
         allWords = readCsv(this)
+        
+        // Проверяем, что есть достаточно слов для квиза
+        if (allWords.size < 2) {
+            questionText.text = "Not enough words for quiz"
+            resultText.text = "Please add more words to the database"
+            resultText.visibility = View.VISIBLE
+            finishButton.visibility = View.VISIBLE
+            finishButton.setOnClickListener { finish() }
+            return
+        }
+        
         allWords.shuffle()
 
         // Начинаем квиз

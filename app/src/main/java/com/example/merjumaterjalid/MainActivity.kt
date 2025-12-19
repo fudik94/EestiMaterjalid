@@ -138,9 +138,18 @@ class MainActivity : AppCompatActivity() {
     // Обновление отображаемых слов
     private fun updateDisplayedWords() {
         displayedWords = if (isShowingFavorites) {
-            allWords.filter { favorites.contains(it.name) }.take(currentLimit).toMutableList()
+            val favWords = allWords.filter { favorites.contains(it.name) }
+            if (currentLimit == Int.MAX_VALUE) {
+                favWords.toMutableList()
+            } else {
+                favWords.take(currentLimit).toMutableList()
+            }
         } else {
-            allWords.take(currentLimit).toMutableList()
+            if (currentLimit == Int.MAX_VALUE) {
+                allWords.toMutableList()
+            } else {
+                allWords.take(currentLimit).toMutableList()
+            }
         }
         adapter.updateList(displayedWords)
     }
