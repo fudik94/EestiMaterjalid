@@ -71,15 +71,17 @@ class QuizActivity : AppCompatActivity() {
         // Создаем варианты ответов
         val options = mutableListOf(currentWord.rus)
         
-        // Добавляем случайные неправильные ответы
+        // Добавляем случайные неправильные ответы (избегаем дубликатов)
         val otherWords = allWords.filter { it.name != currentWord.name }.shuffled()
-        val numOptions = minOf(3, otherWords.size)
-        for (i in 0 until numOptions) {
-            options.add(otherWords[i].rus)
+        for (word in otherWords) {
+            if (options.size >= 4) break
+            if (!options.contains(word.rus) && word.rus.isNotEmpty()) {
+                options.add(word.rus)
+            }
         }
         
-        // Если недостаточно уникальных вариантов, дублируем с другими переводами
-        if (options.size < 4 && otherWords.isNotEmpty()) {
+        // Если недостаточно уникальных вариантов, добавляем английские переводы
+        if (options.size < 4) {
             for (word in otherWords) {
                 if (options.size >= 4) break
                 if (!options.contains(word.eng) && word.eng.isNotEmpty()) {
@@ -165,24 +167,23 @@ class QuizActivity : AppCompatActivity() {
     private fun readCsv(context: Context): MutableList<Word> {
         val list = mutableListOf<Word>()
         try {
-            val inputStream = context.assets.open("words.csv")
-            val reader = inputStream.bufferedReader()
-            reader.forEachLine { line ->
-                val tokens = line.split(";")
-                if (tokens.size >= 6) {
-                    list.add(
-                        Word(
-                            name = tokens[0].trim(),
-                            quest = tokens[1].trim(),
-                            example = tokens[2].trim(),
-                            rus = tokens[3].trim(),
-                            eng = tokens[4].trim(),
-                            aze = tokens[5].trim()
+            context.assets.open("words.csv").bufferedReader().use { reader ->
+                reader.forEachLine { line ->
+                    val tokens = line.split(";")
+                    if (tokens.size >= 6) {
+                        list.add(
+                            Word(
+                                name = tokens[0].trim(),
+                                quest = tokens[1].trim(),
+                                example = tokens[2].trim(),
+                                rus = tokens[3].trim(),
+                                eng = tokens[4].trim(),
+                                aze = tokens[5].trim()
+                            )
                         )
-                    )
+                    }
                 }
             }
-            reader.close()
         } catch (e: Exception) {
             e.printStackTrace()
         }

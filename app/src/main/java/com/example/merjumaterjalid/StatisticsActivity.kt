@@ -39,15 +39,14 @@ class StatisticsActivity : AppCompatActivity() {
     private fun countWordsInCsv(): Int {
         var count = 0
         try {
-            val inputStream = assets.open("words.csv")
-            val reader = inputStream.bufferedReader()
-            reader.forEachLine { line ->
-                val tokens = line.split(";")
-                if (tokens.size >= 6) {
-                    count++
+            assets.open("words.csv").bufferedReader().use { reader ->
+                reader.forEachLine { line ->
+                    val tokens = line.split(";")
+                    if (tokens.size >= 6) {
+                        count++
+                    }
                 }
             }
-            reader.close()
         } catch (e: Exception) {
             e.printStackTrace()
         }

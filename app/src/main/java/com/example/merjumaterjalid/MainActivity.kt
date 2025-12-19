@@ -149,24 +149,23 @@ class MainActivity : AppCompatActivity() {
     private fun readCsv(context: Context): MutableList<Word> {
         val list = mutableListOf<Word>()
         try {
-            val inputStream = context.assets.open("words.csv")
-            val reader = inputStream.bufferedReader()
-            reader.forEachLine { line ->
-                val tokens = line.split(";")
-                if (tokens.size >= 6) {
-                    list.add(
-                        Word(
-                            name = tokens[0].trim(),
-                            quest = tokens[1].trim(),
-                            example = tokens[2].trim(),
-                            rus = tokens[3].trim(),
-                            eng = tokens[4].trim(),
-                            aze = tokens[5].trim()
+            context.assets.open("words.csv").bufferedReader().use { reader ->
+                reader.forEachLine { line ->
+                    val tokens = line.split(";")
+                    if (tokens.size >= 6) {
+                        list.add(
+                            Word(
+                                name = tokens[0].trim(),
+                                quest = tokens[1].trim(),
+                                example = tokens[2].trim(),
+                                rus = tokens[3].trim(),
+                                eng = tokens[4].trim(),
+                                aze = tokens[5].trim()
+                            )
                         )
-                    )
+                    }
                 }
             }
-            reader.close()
         } catch (e: Exception) {
             e.printStackTrace()
         }
