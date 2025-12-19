@@ -1,6 +1,6 @@
-# 📘 MerjuMaterjalid
+# 📘 EestiMaterjalid
 
-**MerjuMaterjalid** is an Android app for learning Estonian words and phrases.  
+**EestiMaterjalid** is an Android app for learning Estonian words and phrases.  
 It helps users study vocabulary with examples, translations, and questions — in a simple and fun way.
 
 ##  Features:
