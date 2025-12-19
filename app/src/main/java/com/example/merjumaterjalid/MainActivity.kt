@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var prefs: SharedPreferences
     private var currentLimit: Int = Int.MAX_VALUE
     private var isShowingFavorites: Boolean = false
+    private val ADD_WORD_REQUEST_CODE = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -113,6 +114,21 @@ class MainActivity : AppCompatActivity() {
         quizButton.setOnClickListener {
             startActivity(Intent(this, QuizActivity::class.java))
         }
+
+        // Кнопка Add Word
+        val addWordButton: Button = findViewById(R.id.addWordButton)
+        addWordButton.setOnClickListener {
+            startActivityForResult(Intent(this, AddWordActivity::class.java), ADD_WORD_REQUEST_CODE)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == ADD_WORD_REQUEST_CODE && resultCode == RESULT_OK) {
+            // Reload words when a new word is added
+            allWords = readCsv(this)
+            updateDisplayedWords()
+        }
     }
 
     // Фильтрация слов по поисковому запросу
@@ -157,6 +173,8 @@ class MainActivity : AppCompatActivity() {
     // Чтение CSV
     private fun readCsv(context: Context): MutableList<Word> {
         val list = mutableListOf<Word>()
+        
+        // Load words from assets
         try {
             context.assets.open("words.csv").bufferedReader().use { reader ->
                 reader.forEachLine { line ->
@@ -178,6 +196,33 @@ class MainActivity : AppCompatActivity() {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+        
+        // Load custom words from internal storage
+        try {
+            val customWordsFile = java.io.File(filesDir, "custom_words.csv")
+            if (customWordsFile.exists()) {
+                customWordsFile.bufferedReader().use { reader ->
+                    reader.forEachLine { line ->
+                        val tokens = line.split(";")
+                        if (tokens.size >= 6) {
+                            list.add(
+                                Word(
+                                    name = tokens[0].trim(),
+                                    quest = tokens[1].trim(),
+                                    example = tokens[2].trim(),
+                                    rus = tokens[3].trim(),
+                                    eng = tokens[4].trim(),
+                                    aze = tokens[5].trim()
+                                )
+                            )
+                        }
+                    }
+                }
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        
         return list
     }
 }
