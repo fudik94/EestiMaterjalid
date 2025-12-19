@@ -11,6 +11,20 @@
         android:layout_width="match_parent"
         android:layout_height="40dp" />
 
+    <!-- Search Bar -->
+    <EditText
+        android:id="@+id/searchEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/search_hint"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="12dp"
+        android:background="@android:drawable/edit_text"
+        android:drawableStart="@android:drawable/ic_menu_search"
+        android:drawablePadding="8dp" />
+
     <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
@@ -30,23 +44,37 @@
 
         <Button
             android:id="@+id/shuffleButton"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="🔀 mix" />
+            android:text="@string/shuffle_button"
+            android:textSize="12sp" />
 
         <Spinner
             android:id="@+id/limitSpinner"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="4dp"
             android:minHeight="48dp" />
 
         <Button
             android:id="@+id/favoritesButton"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="⭐ mached"
-            android:layout_marginStart="10dp" />
+            android:text="@string/favorites_button"
+            android:layout_marginStart="4dp"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/showAllButton"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/show_all_button"
+            android:layout_marginStart="4dp"
+            android:textSize="12sp" />
     </LinearLayout>
 
 </LinearLayout>
