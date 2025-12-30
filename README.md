@@ -13,7 +13,11 @@ It helps users study vocabulary with examples, translations, and questions — i
 - 🎯 **Quiz Mode** — test your knowledge with interactive multiple-choice quizzes  
 - 📊 **Statistics** — track your learning progress (total words, favorites, words viewed)  
 - 🌙 **Dark / Light theme** — switch automatically or manually  
-- ⏳ **Splash screen** — short intro when the app starts  
+- ⏳ **Splash screen** — short intro when the app starts
+
+## 📱 Screenshots:
+<img width="300" height="400" alt="Screenshot_20251231-014524" src="https://github.com/user-attachments/assets/003bdeaf-ff6f-481d-a41b-2532b87141f0" />
+
 
 ## 🎮 How to Use:
 
@@ -33,7 +37,7 @@ It helps users study vocabulary with examples, translations, and questions — i
 3. Choose the correct translation from 4 options
 4. Get immediate feedback with colors (green = correct, red = wrong)
 5. See your final score with performance rating
-<img width="1080" height="1542" alt="Screenshot_20251231-014542" src="https://github.com/user-attachments/assets/6993c92b-415c-44c6-a172-ee2240a4cb2b" />
+<img width="300" height="430" alt="Screenshot_20251231-014542" src="https://github.com/user-attachments/assets/6993c92b-415c-44c6-a172-ee2240a4cb2b" />
 
 
 ### Statistics
@@ -50,8 +54,6 @@ It helps users study vocabulary with examples, translations, and questions — i
 - SharedPreferences
 - CSV parser
 
-## 📱 Screenshots:
-<img width="1080" height="2400" alt="Screenshot_20251231-014524" src="https://github.com/user-attachments/assets/003bdeaf-ff6f-481d-a41b-2532b87141f0" />
 
 ## 🚀 Recent Improvements (v1.1):
 
