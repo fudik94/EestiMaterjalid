@@ -1,4 +1,8 @@
 <!-- res/values/colors.xml -->
+
+
+
+
 <resources>
     <color name="colorPrimary">#BB86FC</color>
     <color name="colorPrimaryVariant">#3700B3</color>
@@ -7,13 +11,22 @@
     <color name="colorSecondaryVariant">#018786</color>
     <color name="colorOnSecondary">#000000</color>
 
+
+
     <color name="favorite_button_background">#FFFFFF</color>
     <color name="main_text_color_eesti">#000000</color>
 
-    <!-- Ваши кастомные цвета для UI -->
+    <!--  кастомные цвета для UI -->
     <color name="card_background">#FFFFFF</color>
     <color name="text_color_primary">#000000</color>
     <color name="text_color_secondary">#4D4D4D</color>
     <color name="button_favorite_tint">#FFFFFF</color>
+
+    <color name="my_item_background">#ffc49b</color> <!-- задний фон карты слова -->
+
+    <color name="launcher_background_color">#ECE8C5</color> <!-- фон цвет для лого -->
+    <color name="activity_splash_background_color">#ECE8C5</color> <!-- фон цвет старт экрана -->
+    <color name="activity_splash_text_color">#000000</color> <!-- фон цвет текста старт экрана -->
+
 </resources>
     

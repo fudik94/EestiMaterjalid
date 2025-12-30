@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">EestiMaterjalid</string>
     <string name="shuffle_button">🔀 Mix</string>
-    <string name="favorites_button">⭐ Favorites</string>
+    <string name="favorites_button">⭐ Fav.</string>
     <string name="show_all_button">📋 Show All</string>
     <string name="statistics_button">📊 Statistics</string>
     <string name="quiz_button">🎯 Quiz Mode</string>
@@ -14,7 +14,7 @@
     <string name="limit_label">Show:</string>
     
     <!-- Word Library -->
-    <string name="word_library_button">📚 Word Library</string>
+    <string name="word_library_button">📚 Library</string>
     <string name="word_library_title">📚 Word Library</string>
     <string name="create_word_button">➕ Create New Word</string>
     <string name="edit_word_button">✏️ Edit Word</string>

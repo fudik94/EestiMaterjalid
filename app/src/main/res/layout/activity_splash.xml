@@ -5,11 +5,10 @@
     android:gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ECE8C5"
-    tools:ignore="ExtraText">  <!-- Комментарий теперь здесь, вне тега, и это безопасно -->
+    android:background="@color/activity_splash_background_color"
+    tools:ignore="ExtraText">
 
-    <!-- Логотип (можно заменить своим в drawable или mipmap) -->
-    <!-- Тег ImageView теперь корректно закрыт -->
+
 
     <ImageView
         android:id="@+id/splashLogo"
@@ -24,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Eesti Materjalid"
-        android:textColor="#000000"
+        android:textColor="@color/activity_splash_text_color"
         android:textSize="22sp"
         android:textStyle="bold" />
 
@@ -34,7 +33,25 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:text="Õpi eesti keelt rõõmuga!"
-        android:textColor="#000000"
+        android:textColor="@color/activity_splash_text_color"
         android:textSize="14sp" />
+
+
+    <!-- пустота -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="146dp"
+        android:layout_weight="0" />
+
+    <!-- подпись мой -->
+    <TextView
+        android:id="@+id/createdBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Created by Fuad Ismayilbayli"
+        android:textColor="@color/activity_splash_text_color"
+        android:textSize="12sp"
+        android:textStyle="italic" />
 
 </LinearLayout>

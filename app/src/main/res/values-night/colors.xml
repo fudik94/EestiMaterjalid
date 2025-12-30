@@ -16,5 +16,11 @@
     <color name="text_color_secondary">#B3B3B3</color>
     <color name="button_favorite_tint">#1E1E1E</color>
 
+    <color name="my_item_background">#FF424242</color>
+
+    <color name="launcher_background_color">#151117</color>
+    <color name="activity_splash_background_color">#151117</color> <!-- фон цвет старт экрана -->
+    <color name="activity_splash_text_color">#FFFFFF</color> <!-- фон цвет текста старт экрана -->
+
 </resources>
     
