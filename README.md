@@ -16,7 +16,7 @@ It helps users study vocabulary with examples, translations, and questions — i
 - ⏳ **Splash screen** — short intro when the app starts
 
 ## 📱 Screenshots:
-<img width="300" height="400" alt="Screenshot_20251231-014524" src="https://github.com/user-attachments/assets/003bdeaf-ff6f-481d-a41b-2532b87141f0" />
+<img width="300" height="667" alt="Screenshot_20251231-014524" src="https://github.com/user-attachments/assets/003bdeaf-ff6f-481d-a41b-2532b87141f0" />
 
 
 ## 🎮 How to Use:
