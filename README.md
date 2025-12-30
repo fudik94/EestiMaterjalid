@@ -33,6 +33,8 @@ It helps users study vocabulary with examples, translations, and questions — i
 3. Choose the correct translation from 4 options
 4. Get immediate feedback with colors (green = correct, red = wrong)
 5. See your final score with performance rating
+<img width="1080" height="1542" alt="Screenshot_20251231-014542" src="https://github.com/user-attachments/assets/6993c92b-415c-44c6-a172-ee2240a4cb2b" />
+
 
 ### Statistics
 - Track your progress with word counts
@@ -49,8 +51,7 @@ It helps users study vocabulary with examples, translations, and questions — i
 - CSV parser
 
 ## 📱 Screenshots:
-
-*(Screenshots coming soon)*
+<img width="1080" height="2400" alt="Screenshot_20251231-014524" src="https://github.com/user-attachments/assets/003bdeaf-ff6f-481d-a41b-2532b87141f0" />
 
 ## 🚀 Recent Improvements (v1.1):
 
@@ -61,7 +62,7 @@ It helps users study vocabulary with examples, translations, and questions — i
 ✅ Fixed bugs and improved code quality  
 ✅ Better night mode support  
 
-See [IMPROVEMENTS.md](IMPROVEMENTS.md) for detailed changelog.
+
 
 ## 🎯 Purpose:
 
@@ -76,21 +77,13 @@ Eslinde bash veren: imtahandan kesilenden sonra butun dersin materiallarin progr
 3. **Favorite Strategy**: Mark difficult words and review them regularly
 4. **Search Power**: Use search to review specific word types
 5. **Mix It Up**: Use shuffle to vary your study routine
+6. **Mini game Quiz "🎯 Quiz Mode"
 
-## 🔧 Installation:
-
-1. Clone the repository
-2. Open in Android Studio
-3. Sync Gradle files
-4. Run on device or emulator
 
 ## 📄 License:
 
 This project is open source and available for educational purposes.
-
-## 🤝 Contributing:
-
-Contributions, issues, and feature requests are welcome!
+created by Fuad Ismayilbayli
 
 ---
 
