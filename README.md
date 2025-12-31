@@ -58,7 +58,7 @@ It helps users study vocabulary with examples, translations, and questions — i
 - CSV parser
 
 
-## 🚀 Recent Improvements (v1.1):
+## 🚀 Recent Improvements :
 
 ✅ Added real-time search functionality  
 ✅ Created interactive Quiz Mode for active learning  
@@ -66,6 +66,7 @@ It helps users study vocabulary with examples, translations, and questions — i
 ✅ Improved UI with better spacing and modern design  
 ✅ Fixed bugs and improved code quality  
 ✅ Better night mode support  
+✅ and etc.
 
 
 ## 📖 Learning Tips:
