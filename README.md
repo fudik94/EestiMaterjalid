@@ -3,6 +3,7 @@
 **EestiMaterjalid** is an Android app for learning Estonian words and phrases.  
 It helps users study vocabulary with examples, translations, and questions — in a simple and fun way.
 
+
 ## ✨ Features:
 
 - 📚 **Dictionary view** — browse Estonian words with examples and translations  
@@ -14,6 +15,8 @@ It helps users study vocabulary with examples, translations, and questions — i
 - 📊 **Statistics** — track your learning progress (total words, favorites, words viewed)  
 - 🌙 **Dark / Light theme** — switch automatically or manually  
 - ⏳ **Splash screen** — short intro when the app starts
+
+“Əslində baş verən: eston dili imtahanından kəsildikdən sonra bütün dərs materiallarını proqramda topladım və dərsi rahat öyrənmək üçün tətbiq etdim. Tənbəllik bəla deyil, bəzən çıxış yoludur.”
 
 ## 📱 Screenshots:
 <img width="300" height="667" alt="Screenshot_20251231-014524" src="https://github.com/user-attachments/assets/003bdeaf-ff6f-481d-a41b-2532b87141f0" />
@@ -64,13 +67,6 @@ It helps users study vocabulary with examples, translations, and questions — i
 ✅ Fixed bugs and improved code quality  
 ✅ Better night mode support  
 
-
-
-## 🎯 Purpose:
-
-Eslinde bash veren: imtahandan kesilenden sonra butun dersin materiallarin programm duzledib, dersi rahat oyerenmek.
-
-*After the exam, I compiled all the course materials into this program to learn the lessons comfortably.*
 
 ## 📖 Learning Tips:
 
